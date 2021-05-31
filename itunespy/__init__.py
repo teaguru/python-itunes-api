@@ -101,6 +101,7 @@ def lookup(
 
     lookup_url = _url_lookup_builder(id, artist_amg_id, upc, country, media, entity, attribute, limit)
     r = requests.get(lookup_url)
+    #print(lookup_url)
 
     try:
         json = r.json()['results']
@@ -320,6 +321,7 @@ def _url_search_builder(
         query["entity"] = entity
     if attribute is not None:
         query["attribute"] = attribute
+    print(base_search_url + "?" + urlencode(query))
 
     return base_search_url + "?" + urlencode(query)
 
